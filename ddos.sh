@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # Update package lists and install necessary packages
-apt -y update && sudo apt -y install curl wget python3  rust make cmake automake autoconf m4 build-essential git
+apt -y update &&  apt -y install curl wget python3  rust make cmake automake autoconf m4 build-essential git
 
 # Wait for 3 seconds to ensure all installations are completed
 sleep 3
