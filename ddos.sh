@@ -1,17 +1,22 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # Update package lists and install necessary packages
-apt -y update &&  apt -y install curl wget python3 binutils rust make cmake automake autoconf m4 build-essential git
+apt -y update && apt -y install curl wget python3 binutils rust make cmake automake autoconf m4 build-essential git
 
 # Wait for 3 seconds to ensure all installations are completed
 sleep 3
 
-# Clone the MHDDoS repository
-if git clone https://github.com/MatrixTM/MHDDoS.git; then
-    echo "Successfully cloned MHDDoS repository."
+# Check if the MHDDoS directory exists
+if [ -d "MHDDoS" ]; then
+    echo "MHDDoS directory already exists. Continuing..."
 else
-    echo "Failed to clone MHDDoS repository. Exiting."
-    exit 1
+    # Clone the MHDDoS repository
+    if git clone https://github.com/MatrixTM/MHDDoS.git; then
+        echo "Successfully cloned MHDDoS repository."
+    else
+        echo "Failed to clone MHDDoS repository. Exiting."
+        exit 1
+    fi
 fi
 
 # Change to the MHDDoS directory
